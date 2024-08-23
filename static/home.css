@@ -74,18 +74,6 @@ header .header-img {
     font-size: 1em;
 }
 
-.artists-grid .artist-card button {
-    background-color: rgb(85, 79, 79);
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: background-color 0.3s;
-}
-
 .artists-grid .artist-card button:hover {
     background-color: #5cacee;
 }
@@ -103,7 +91,6 @@ header .header-img {
     border: none; 
     border-radius: 5px; 
     font-size: 16px;
-    cursor: pointer; 
     transform: scale(1.05);
 }
 /* Utility Classes */

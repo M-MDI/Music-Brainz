@@ -1,75 +1,57 @@
-/* Base Styles */
 body {
+    background-color: #121212;
+    color: #e0e0e0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
-    background-image: url("/static/images/bkkk.jpg");
-    background-color: #1a1a1a;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: #f0f0f0;
-    transition: background-color 0.3s, color 0.3s, background-image 0.3s;
-}
-
-/* Header Styles */
-h1 {
-    font-family: Copperplate, Papyrus, fantasy;
-    color: #87ceeb;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Image Styles */
-img {
+  }
+  
+  h1, h2 {
+    color: #ffffff;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #5cacee;
     display: block;
     max-width: 300px;
     height: auto;
     margin: 0 auto 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Content Styles */
-p, ul {
-    background-color: rgba(51, 51, 51, 0.8);
-    border: 1px solid #5b5b5b;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-
-h2 {
-    color: #87ceeb;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
-ul {
+  }
+  
+  ul {
     list-style-type: none;
-    padding-left: 0;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
-/* Utility Classes */
-strong {
-    color: #87ceeb;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    img {
-        max-width: 100%;
-    }
-}
+    padding: 0;
+  }
+  
+  li {
+    background-color: #333333;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  h2 {
+    border-bottom: 2px solid #444444;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  ul li {
+    color: #d0d0d0;
+  }
+  
+  a {
+    color: #1e90ff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
