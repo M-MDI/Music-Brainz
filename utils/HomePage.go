@@ -11,7 +11,6 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to load artists", http.StatusInternalServerError)
 		return
 	}
-
-	tmpl := template.Must(template.ParseFiles("templates/index.html"))
+	tmpl := template.Must(template.ParseFiles("templates/HomePage.html"))
 	tmpl.Execute(w, Data{Artists: artists})
 }

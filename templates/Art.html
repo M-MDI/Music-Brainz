@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/art.css" />
+    <title>{{ .Art.Name }}</title>
+  </head>
+  <body>
+    <h1>{{ .Art.Name }}</h1>
+    <img src="{{ .Art.Image }}" alt="{{ .Art.Name }} Image" />
+
+    <h2><strong>Creation Date:</strong> </h2>
+    <ul><li>{{ .Art.CreationDate }}</li></ul>
+    <h2><strong>First Album:</strong></h2>
+    <ul><li> {{ .Art.FirstAlbum }}</li></ul>
+    <h2>Members:</h2>
+    <ul>
+      {{ range .Art.Members }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+
+    <h2>Tour Dates:</h2>
+    <ul>
+      {{ range .Dates }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+
+    <h2>Locations:</h2>
+    <ul>
+      {{ range .Locations }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+
+    <h2>Relations:</h2>
+    {{ range $Locations, $dates := .Relations }}
+    <ul>
+      {{$Locations}} {{ range $dates }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </body>
+</html>

@@ -1,0 +1,128 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url("/static/images/bkkk.jpg");
+    background-color: #1a1a1a;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+}
+
+/* Header Styles */
+header {
+    font-family: Copperplate, Papyrus, fantasy;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #87ceeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+header .header-text {
+    margin: 0 1em;
+}
+
+header .header-img {
+    max-width: 150px;
+    height: auto;
+    margin-right: 1em;
+}
+
+/* Artists Grid */
+.artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Artist Card */
+.artists-grid .artist-card {
+    background-color: rgba(51, 51, 51, 0.8);
+    border: 1px solid #5b5b5b;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #f0f0f0;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.artists-grid .artist-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.artists-grid .artist-card h2 {
+    font-size: 1.5em;
+    margin: 0.5em;
+}
+
+.artists-grid .artist-card p {
+    margin: 0.5em;
+    font-size: 1em;
+}
+
+.artists-grid .artist-card button {
+    background-color: rgb(85, 79, 79);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: background-color 0.3s;
+}
+
+.artists-grid .artist-card button:hover {
+    background-color: #5cacee;
+}
+.artists-grid .artist-card:hover {
+    background-color: rgba(70, 70, 70, 0.9);
+    border-color: #87ceeb;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.btnhover {
+    background-color: rgb(85, 79, 79);
+    color: white; 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer; 
+    transform: scale(1.05);
+}
+/* Utility Classes */
+p strong {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header .header-img {
+        margin-bottom: 1em;
+    }
+
+    .artists-grid {
+        grid-template-columns: 1fr;
+    }
+}
