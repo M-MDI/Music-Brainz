@@ -84,15 +84,7 @@ header .header-img {
     transform: scale(1.05);
 }
 
-.btnhover {
-    background-color: rgb(85, 79, 79);
-    color: white; 
-    padding: 12px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    font-size: 16px;
-    transform: scale(1.05);
-}
+
 /* Utility Classes */
 p strong {
     font-weight: bold;

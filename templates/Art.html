@@ -39,10 +39,14 @@
     <h2>Relations:</h2>
     {{ range $Locations, $dates := .Relations }}
     <ul>
-     <h3> {{$Locations}} : {{ range $dates }}</h3>
-      <li>{{ . }}</li>
-      {{ end }}
+    <h3> {{$Locations}} : {{ range $dates }}</h3>
+      <li>{{ . }}</li>  
+    {{ end }}
     </ul>
     {{ end }}
+    <button class="btn" onclick="window.location.href='/';">
+      Back to list 
+    </button>
+    
   </body>
 </html>
