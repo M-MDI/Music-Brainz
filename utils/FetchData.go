@@ -12,7 +12,6 @@ func FetchArtists() ([]Artist, error) {
 	}
 	defer resp.Body.Close()
 
-	var artists []Artist
 	err = json.NewDecoder(resp.Body).Decode(&artists)
 	if err != nil {
 		return nil, err

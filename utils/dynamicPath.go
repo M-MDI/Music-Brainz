@@ -29,7 +29,8 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 	idStr := r.PathValue("id")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		http.NotFound(w, r)
+		tmpl, err := template.ParseFiles("templates/errors.html")
+		err = tmpl.Execute(w, err)
 		return
 	}
 	if id > 0 && id <= len(Deta.Art) {
@@ -50,7 +51,8 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 
 		}
 	} else {
-		http.NotFound(w, r)
+		tmpl, err := template.ParseFiles("templates/errors.html")
+		err = tmpl.Execute(w, err)
 		fmt.Println("Template parsing error")
 	}
 }

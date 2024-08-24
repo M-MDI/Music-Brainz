@@ -49,3 +49,6 @@ type Data struct {
 }
 
 var Deta Details
+
+
+var artists []Artist
