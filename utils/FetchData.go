@@ -6,15 +6,15 @@ import (
 )
 
 func FetchArtists() ([]Artist, error) {
-	resp, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
+		resp, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+			if err != nil {
+				return nil, err
+			}
+		defer resp.Body.Close()
 
 	err = json.NewDecoder(resp.Body).Decode(&artists)
-	if err != nil {
-		return nil, err
-	}
-	return artists, nil
+		if err != nil {
+			return nil, err
+		}
+		return artists, nil
 }

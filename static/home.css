@@ -19,7 +19,7 @@ header {
     font-family: Copperplate, Papyrus, fantasy;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: rgba(51, 51, 51, 0.8);
-    color: #87ceeb;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,11 +75,11 @@ header .header-img {
 }
 
 .artists-grid .artist-card button:hover {
-    background-color: #5cacee;
+    background-color: #f4faff;
 }
 .artists-grid .artist-card:hover {
     background-color: rgba(70, 70, 70, 0.9);
-    border-color: #87ceeb;
+    border-color: #f2f2f2;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
 }

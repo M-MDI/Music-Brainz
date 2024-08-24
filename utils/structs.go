@@ -1,5 +1,7 @@
 package Groupietracker
 
+
+
 type Artist struct {
 	Id           int      `json:"id"`
 	Image        string   `json:"image"`
@@ -52,3 +54,6 @@ var Deta Details
 
 
 var artists []Artist
+
+
+var ID string

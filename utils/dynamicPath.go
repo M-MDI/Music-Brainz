@@ -1,9 +1,7 @@
 package Groupietracker
 
 import (
-	"fmt"
 	"html/template"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -26,13 +24,19 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	idStr := r.PathValue("id")
-	id, err := strconv.Atoi(idStr)
+	ID := r.PathValue("id")
+	id, err := strconv.Atoi(ID)
+
 	if err != nil {
 		tmpl, err := template.ParseFiles("templates/errors.html")
 		err = tmpl.Execute(w, err)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		} 
 		return
 	}
+
 	if id > 0 && id <= len(Deta.Art) {
 		tmpl, err := template.ParseFiles("templates/Art.html")
 		if err != nil {
@@ -47,12 +51,15 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 		err = tmpl.Execute(w, response)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
-			log.Println("Template parsing error:", err)
-
 		}
+
 	} else {
+
 		tmpl, err := template.ParseFiles("templates/errors.html")
 		err = tmpl.Execute(w, err)
-		fmt.Println("Template parsing error")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 }
