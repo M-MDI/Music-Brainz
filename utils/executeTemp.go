@@ -1,14 +1,12 @@
 package Groupietracker
 
-import (
-	"html/template"
-	"net/http"
-)
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------
 
 func ExctTmple(w http.ResponseWriter, name string, data any) error {
 	var tpl *template.Template
 
-	tpl, err := template.ParseGlob("/templates/*.html")
+	tpl, err := template.ParseGlob("/Music-Brainz/templates/*.html")
 	if err != nil {
 		return err
 	}
@@ -19,3 +17,6 @@ func ExctTmple(w http.ResponseWriter, name string, data any) error {
 	}
 	return nil
 }
+
+	----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/

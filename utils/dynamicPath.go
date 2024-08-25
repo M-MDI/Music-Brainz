@@ -27,11 +27,12 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(ID)
 
 	if err != nil {
-		err := ExctTmple(w, "errors.html", nil)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+		tmpl, err := template.ParseFiles("templates/errors.html")
+		err = tmpl.Execute(w, err)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
-		}
+	}
 		return
 	}
 
@@ -52,10 +53,11 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 		}
 
 	} else {
-		err := ExctTmple(w, "errors.html", err)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
+		tmpl, err := template.ParseFiles("templates/errors.html")
+				err = tmpl.Execute(w, err)
+					if err != nil {
+						http.Error(w, err.Error(), http.StatusInternalServerError)
+					return
+			}
 	}
 }
