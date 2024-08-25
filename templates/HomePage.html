@@ -4,23 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/home.css" />
-    <title>Music Brainz</title>
-    <link rel="icon" href="/static/images/music.png">
+    <title>Music-Brainz</title>
+    <link rel="icon" href="/static/images/music.png" />
   </head>
   <body>
     <header>
-      <h1 class="header-text">Groupie Trackers</h1>
-      <img class="header-img" src="/static/images/Z01.png" alt="Header Image">
+      <h1 class="header-text">Music-Brainz</h1>
+      <img class="header-img" src="/static/images/Z01.png" alt="Header Image" />
     </header>
 
     <div class="artists-grid">
       {{range .Artists}}
-      <form onclick="location.href='/artist/{{.Id}}'" class="artist-card" method="post" action="/artist/{{.Id}}">
+      <form
+        onclick="location.href='/artist/{{.Id}}'"
+        class="artist-card"
+        method="post"
+        action="/artist/{{.Id}}"
+      >
         <img class="artist-image" src="{{.Image}}" alt="{{.Name}}" />
         <h2 class="artist-name">{{.Name}}</h2>
-        <p class="artist-members"><strong>Members:</strong> {{range .Members}}{{.}}, {{end}}</p>
-        <p class="artist-creation"><strong>Creation Date:</strong> {{.CreationDate}}</p>
-        <p class="artist-album"><strong>First album:</strong> {{.FirstAlbum}}</p>
+        <p class="artist-members">
+          <strong>Members:</strong> {{range .Members}}{{.}}, {{end}}
+        </p>
+        <p class="artist-creation">
+          <strong>Creation Date:</strong> {{.CreationDate}}
+        </p>
+        <p class="artist-album">
+          <strong>First album:</strong> {{.FirstAlbum}}
+        </p>
       </form>
       {{end}}
     </div>

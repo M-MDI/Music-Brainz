@@ -23,17 +23,15 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to fetch locations", http.StatusInternalServerError)
 		return
 	}
-
 	ID := r.PathValue("id")
 	id, err := strconv.Atoi(ID)
 
 	if err != nil {
-		tmpl, err := template.ParseFiles("templates/errors.html")
-		err = tmpl.Execute(w, err)
+		err := ExctTmple(w, "errors.html", nil)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
-		} 
+		}
 		return
 	}
 
@@ -54,9 +52,7 @@ func ArtistDetails(w http.ResponseWriter, r *http.Request) {
 		}
 
 	} else {
-
-		tmpl, err := template.ParseFiles("templates/errors.html")
-		err = tmpl.Execute(w, err)
+		err := ExctTmple(w, "errors.html", err)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return

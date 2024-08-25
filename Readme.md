@@ -1,4 +1,4 @@
-# MusicBrainz
+# Music Brainz
 
 **Music Brainz** is a project that receives and manipulates data from a provided API to create a user-friendly website, displaying detailed information about bands and artists. The site will showcase various data visualizations and implement client-server interactions to trigger actions.
 
