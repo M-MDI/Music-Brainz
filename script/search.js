@@ -1,5 +1,5 @@
 function performSearch(term) {
-    fetch(`/search?q=${encodeURIComponent(term)}`)
+    fetch(`/artist/{id}`)
         .then(response => response.json())
         .then(data => {
             displayResults(data);
