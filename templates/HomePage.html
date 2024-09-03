@@ -12,62 +12,6 @@
       <h1 class="header-text">Music-Brainz</h1>
       <img class="header-img" src="/static/images/Z01.png" alt="Header Image" />
     </header>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Existing Page with Search</title>
-</head>
-<body>
-    <h1>Welcome to the Artist Portal</h1>
-    
-    <p>Use the form below to search for an artist by ID:</p>
-
-    <!-- Add the search form -->
-    <input type="text" id="artist-id" placeholder="Enter artist ID">
-    <button onclick="searchArtist()">Search</button>
-
-    <!-- Container to display results -->
-    <div id="search-results"></div>
-
-    <!-- JavaScript for fetching artist data -->
-    <script>
-        function searchArtist() {
-            const id = document.getElementById('artist-id').value;
-            if (id) {
-                performSearch(id);
-            }
-        }
-
-        function performSearch(id) {
-            fetch(`/artist/${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    displayResults(data);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-
-        function displayResults(artist) {
-            const resultsContainer = document.getElementById('search-results');
-            resultsContainer.innerHTML = '';  // Clear previous results
-            
-            if (artist) {
-                const itemElement = document.createElement('div');
-                itemElement.textContent = `${artist.name}: ${artist.description}`;
-                resultsContainer.appendChild(itemElement);
-            } else {
-                resultsContainer.textContent = 'Artist not found';
-            }
-        }
-    </script>
-</body>
-</html>
-
-
     <div class="artists-grid">
       {{range .Artists}}
       <form
