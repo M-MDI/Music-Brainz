@@ -1,19 +1,18 @@
 package main
 
 import (
-	Gr "Groupietracker/utils"
 	"fmt"
-	"log"
+	handlers "Music-Brainz/handlers"
 	"net/http"
 )
 
 func main() {
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.HandleFunc("/", Gr.HomeHandler)
-	http.HandleFunc("/artist/{id}", Gr.ArtistDetails)
-	log.Println("Server starting on : http://localhost:8100")
-	if err := http.ListenAndServe(":8100", nil); err != nil {
-		fmt.Println(err)
-		return
-	}
+	port := "8082"
+	fmt.Println("Server started at http://localhost:" + port)
+	http.HandleFunc("/", handlers.Home)
+	http.HandleFunc("/src/", handlers.CssHandler)
+	http.HandleFunc("/artist", handlers.Artist)
+	http.HandleFunc("/about-us", handlers.AboutUs)
+	
+	http.ListenAndServe(":"+port, nil)
 }

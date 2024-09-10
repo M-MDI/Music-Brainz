@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style/style.css">
+    <title>Music-Brainz</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a class="logo">Music-Brainz</a>
+            <div class="nav-sections">
+                <a href="/" class="nav-link">home</a>
+                <a href="#artist-section" class="nav-link">artists</a>
+                <a href="/about-us" class="nav-link">about-us</a>
+            </div>
+        </div>
+    </nav>
+    <section class="slideSection">
+        {{range .Artists}}
+        <div class="mySlides fade">
+            <div class="slideContent">
+                <div class="text">
+                    <a href="/artist?id={{.id}}" type="submit">{{.name}}</a>
+                    <h3>creation date: {{.creationDate}}</h3>
+                    <div class="members">
+                        <h3>members:</h3>
+                        {{range .members}}
+                        <h3>{{.}}</h3>
+                        {{end}}
+                    </div>
+                </div>
+                <div class="slide-img" style="background: url({{.image}}) no-repeat center;"></div>
+            </div>
+        </div>
+        {{end}}
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </section>
+
+    <section class="boxes" id="artist-section">
+        {{range .Artists}}
+        <div class="boxe">
+            <div class="boxe-container">
+                <!-- <div class="fp-content"> -->
+                    <div class="img-box" style="background: url({{.image}}) no-repeat center"></div>
+                    <a href="/artist?id={{.id}}" class="title-box">{{.name}}</a>
+                <h3>members: {{.Len}}</h3>
+            </div>
+        </div>
+        {{end}}
+    </section>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (slideIndex >= slides.length) { slideIndex = 0 }
+            if (slideIndex < 0) { slideIndex = slides.length - 1 }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        function autoSlide() {
+            slideIndex++;
+            showSlides();
+            setTimeout(autoSlide, 3000); // Change slide every 3 seconds (3000 ms)
+        }
+
+        autoSlide(); // Start auto-sliding
+    </script>
+</body>
+
+</html>

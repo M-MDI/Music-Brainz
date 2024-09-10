@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style/style.css">
+    <title>Music-Brainz</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a class="logo">Music-Brainz</a>
+            <div class="nav-sections">
+                <a href="/" class="nav-link">home</a>
+                <a href="/#artist-section" class="nav-link">artists</a>
+                <a href="" class="nav-link">about-us</a>
+            </div>
+        </div>
+    </nav>
+    <section class="artist">
+        <div class="container-section">
+            <div class="artist-box">
+                {{ with .Artist}}
+                <div class="img" style="background: url({{.image}}) no-repeat center;">
+                </div>
+                {{end}}
+                <div class="list">
+
+                    <h1 class="element focus">details</h1>
+                    <h1 class="element">dates</h1>
+                    <h1 class="element">locations</h1>
+                    <h1 class="element">relation</h1>
+                </div>
+                <div class="content">
+                    <div class="infos-display" style="display: block;">
+                        <div class="infos">
+                            <div class="head-infos">
+                                {{with .Artist}}
+                                <h1>{{.name}}</h1>
+                                <div class="line"></div>
+                            </div>
+                            <div class="content-infos">
+                                <div class="container">
+                                    <div class="field-box">
+                                        <div class="field">
+                                            <h1>members:</h1>
+                                        </div>
+                                        <div class="members value">
+                                            {{range .members}}
+                                            <div class="member">
+                                                <h1 class="">{{.}}</h1>
+                                            </div>
+                                            {{end}}
+                                        </div>
+
+                                    </div>
+                                    <div class="field-box">
+                                        <div class="field">
+                                            <h1>creation date:</h1>
+                                        </div>
+                                        <h1 class="value">{{.creationDate}}</h1>
+                                    </div>
+                                    <div class="field-box">
+                                        <div class="field">
+                                            <h1>first album:</h1>
+                                        </div>
+                                        <h1 class="value">{{.firstAlbum}}</h1>
+                                    </div>
+                                </div>
+                                {{end}}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="infos-display dates-locations" style="display: none;">
+                        <div class="infos">
+                            <div class="head-infos">
+                                {{with .Artist}}
+                                <h1>{{.name}}</h1>
+                                {{end}}
+                                <div class="line"></div>
+                            </div>
+                            <div class="content-infos">
+                                <div class="container">
+                                    <div class="value">
+                                        {{range .Dates.dates}}
+                                        <h1>{{.}}</h1>
+                                        {{end}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="infos-display dates-locations" style="display: none;">
+                        <div class="infos">
+                            <div class="head-infos">
+                                {{with .Artist}}
+                                <h1>{{.name}}</h1>
+                                {{end}}
+                                <div class="line"></div>
+                            </div>
+                            <div class="content-infos">
+                                <div class="container">
+                                    <div class="value">
+                                        {{range .Locations.locations}}
+                                        <h1>{{.}}</h1>
+                                        {{end}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infos-display" style="display: none;">
+                        <div class="infos">
+                            <div class="head-infos">
+                                {{with .Artist}}
+                                <h1>{{.name}}</h1>
+                                {{end}}
+                                <div class="line"></div>
+                            </div>
+                            <div class="content-infos">
+                                <div class="container">
+                                    {{range $key, $value:= .Relation.datesLocations}}
+                                    <div class="field-box" style="display: block;">
+                                        <div class="field">
+                                            <h1>{{$key}}</h1>
+                                        </div>
+                                        <div class="value" style="padding-top: 10px;">
+                                            {{range $value}}
+                                            <h1>{{.}}</h1>
+                                            {{end}}
+                                        </div>
+                                    </div>
+                                    {{end}}
+                                </div>
+                            </div>
+                        </div>
+    </section>
+    </section>
+    <script>
+        let infos = document.querySelectorAll(".infos-display");
+        let elements = document.querySelectorAll(".element");
+
+        elements.forEach((element, index) => {
+            element.addEventListener('click', function () {
+                infos.forEach(info => info.style.display = "none");
+                elements.forEach(el => el.classList.remove('focus'));
+                if (infos[index].style.display === "none") {
+                    infos[index].style.display = "block";
+                    element.classList.add('focus');
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
