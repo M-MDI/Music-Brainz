@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+
 func FetchData(url string, t interface{}) error {
 	res, err := http.Get(url)
 	if err != nil {
