@@ -13,6 +13,5 @@ func main() {
 	http.HandleFunc("/src/", handlers.CssHandler)
 	http.HandleFunc("/artist", handlers.Artist)
 	http.HandleFunc("/about-us", handlers.AboutUs)
-	
 	http.ListenAndServe(":"+port, nil)
 }
