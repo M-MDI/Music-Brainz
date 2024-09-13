@@ -25,6 +25,6 @@ func FetchData(url string, t interface{}) error {
 	}
 
 	json.Unmarshal(dataBytes, &t)
-
+	
 	return nil
 }
