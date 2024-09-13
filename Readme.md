@@ -124,7 +124,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-Mehdi - ig := [@mehdim_dev]
-Discord-profile := [https://discord.com/users/720655054834630676]
+- **Mehdi - ig := [@mehdim_dev]**
+- **Discord-profile := [https://discord.com/users/720655054834630676]**
 
-Project Link: [https://github.com/mehdi/music-brainz](https://github.com/mehdi/music-brainz)
+- **Project Link: [https://github.com/mehdi/music-brainz]**
