@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/style/error.css">
+  <title>Music-Brainz</title>
+</head>
+
+<body>
+  <!-- main-Content -->
+  <h1> # {{.MsgError}} </h1>
+  <section class="error-container">
+    <span>{{ index .Code 0 }}</span>
+    <span><span class="screen-reader-text"><span>{{ index .Code 1 }}</span></span></span>
+    <span>{{ index .Code 2 }}</span>
+  </section>
+  <div class="link-container">
+    <a target="_blank" href="/" class="more-link">Return to Home Page</a>
+  </div>
+</body>
+
+</html>
