@@ -12,19 +12,25 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		ErrorHandler(w, "Method Not Allowed!", http.StatusMethodNotAllowed)
 		return
 	}
+	
 	if r.URL.Path == "/" {
+	
 		err := config.ErrApiData
+	
 		if err != nil {
 			ErrorHandler(w, "Network Authentication Required", http.StatusNetworkAuthenticationRequired)
 			return
 		}
+	
 		data := config.MyStruct
 		err = funcs.ExctTmple(w, "index.html", data)
+	
 		if err != nil {
 			ErrorHandler(w, "Failed to render template: ", http.StatusInternalServerError)
 			return
 		}
-	} else {
+	
+		} else {
 		ErrorHandler(w, "This Page Not Found !!", http.StatusNotFound)
 		return
 	}

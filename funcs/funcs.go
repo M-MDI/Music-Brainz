@@ -22,6 +22,7 @@ func ExctTmple(w http.ResponseWriter, name string, data any) error {
 
 func GetArtist(idTarget int, structTarget interface{}) interface{} {
 	MyStruct, ok := structTarget.([]map[string]interface{})
+
 	if ok {
 		for _, v := range MyStruct {
 			myint, ok := v["id"].(float64)
@@ -32,11 +33,13 @@ func GetArtist(idTarget int, structTarget interface{}) interface{} {
 			}
 		}
 	}
+
 	return nil
 }
 
 func ReValueDates(dates []interface{}) []interface{} {
 	var res []interface{}
+	
 	for _, v := range dates {
 		if v.(string)[0] == '*' {
 			// fmt.Println("test")
@@ -44,34 +47,41 @@ func ReValueDates(dates []interface{}) []interface{} {
 		}
 		res = append(res, v)
 	}
+	
 	return res
 }
 
 func AddSliceToMap(MySlice []interface{}) []string {
 	var res []string
+
 	for _, v := range MySlice {
 		var curStr string
 		for i, ch := range v.(string) {
 			if ch == '*' {
 				continue
 			}
+
 			if i == len(v.(string))-1 {
 				curStr += string(ch)
 				res = append(res, curStr)
 				curStr = ""
 				break
 			}
+
 			curStr += string(ch)
 		}
 	}
+
 	return res
 }
 
 func CheckErr(MySlice []error) bool {
+
 	for _, v := range MySlice {
 		if v != nil {
 			return true
 		}
 	}
+
 	return false
 }

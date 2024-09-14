@@ -12,5 +12,6 @@ func AboutUs(w http.ResponseWriter, r *http.Request) {
 		ErrorHandler(w, "Method Not Allowed!", http.StatusMethodNotAllowed)
 		return
 	}
+	
 	funcs.ExctTmple(w, "about.html", nil)
 }

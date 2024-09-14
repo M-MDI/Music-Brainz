@@ -34,6 +34,7 @@ func ErrorHandler(w http.ResponseWriter, ErrorMsg string, StatusCode int) {
 	Err.MsgError = ErrorMsg
 
 	tempErr := funcs.ExctTmple(w, "error.html", Err)
+
 	if tempErr != nil {
 		ErrorHandler(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		return
